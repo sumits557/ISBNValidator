@@ -1,3 +1,5 @@
+package com.org.isbn;
+
 import com.org.isbn.ValidateISBN;
 import org.junit.Test;
 
@@ -31,5 +33,12 @@ public class ValidateISBNTest {
     public void nonNumericISBNAreNotAllowed() {
         ValidateISBN  validateISBN = new ValidateISBN();
         validateISBN.checkISBN("helloWorld");
+    }
+
+    @Test
+    public void ISBNNumbersEndingWithXAreValid() {
+        ValidateISBN validateISBN = new ValidateISBN();
+        boolean result = validateISBN.checkISBN("012000030X");
+        assertTrue(result);
     }
 }
